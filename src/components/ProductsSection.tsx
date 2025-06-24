@@ -1,11 +1,10 @@
-
-import { Tiles, Bath, Droplets, Home } from 'lucide-react';
+import { Grid3x3, Bath, Droplets, Home } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const ProductsSection = () => {
   const categories = [
     {
-      icon: Tiles,
+      icon: Grid3x3,
       title: "Dalles & Carrelage",
       description: "Collection premium de dalles de sol et faïences murales pour tous vos projets",
       image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
