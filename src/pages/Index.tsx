@@ -1,12 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect, useState } from 'react';
+import Navigation from '@/components/Navigation';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import ProductsSection from '@/components/ProductsSection';
+import InspirationSection from '@/components/InspirationSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      <Navigation />
+      <HeroSection scrollY={scrollY} />
+      <AboutSection />
+      <ProductsSection />
+      <InspirationSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
